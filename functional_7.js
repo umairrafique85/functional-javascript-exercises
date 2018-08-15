@@ -14,11 +14,13 @@ let wordCounter = function(tarArray) {
 */
 
 function reduce(arr, fn, initial) {
-	firstWord = arr.shift();
-	initial[firstWord] ? initial[firstWord] += 1 : initial[firstWord] =1;
-	if (arr.length >0) {
-		reduce(arr);
-	}
-	return initial;     
+	if (arr.length>0){
+		let firstWord = arr.shift();
+		initial[firstWord] ? initial[firstWord] += 1 : initial[firstWord] =1;
+		if (arr.length >0) {
+			reduce(arr, 'a', initial);;
+		};
+		return initial;
+	} else { return {} }
 }
 module.exports = reduce
